@@ -1,7 +1,7 @@
 # Monetus Teste Engenharia de Software
 
   ## Requisitos
-    :heavy_check_mark: Utilização do Redux para controle de estado;
+    `:heavy_check_mark:` Utilização do Redux para controle de estado;
     :heavy_check_mark: Dados do quote;
     :heavy_check_mark: Dados da companhia;
     :heavy_check_mark: Gráfico dos valores do ultimo mês das empresas;
