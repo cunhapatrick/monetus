@@ -24,3 +24,5 @@
   :heavy_check_mark: Utilização do redux-saga como middleware de manipulação de requisições assincronas;
   
   :heavy_check_mark: Configuração e uso do reactotron para monitoramento do redux no ambiente de desenvolvimento;
+  
+  :heavy_check_mark: Pode se ter n dados das companhias listados lado a lado;
