@@ -4,19 +4,35 @@ import api from '../../services/api';
 import { addCompanySuccess } from '../actions/companies';
 
 export function* addCompany(action) {
-  const { data: quoteData } = yield call(api.get, `/${action.payload.companySymbol}/batch?types=quote`);
-  const { data: companyData } = yield call(api.get, `/${action.payload.companySymbol}/company`);
-  const { data: chartData } = yield call(api.get, `/${action.payload.companySymbol}/chart`);
-  const { data: news } = yield call(api.get, `/${action.payload.companySymbol}/news/last/1`);
+
+  let quoteData;
+  let companyData;
+  let chartData;
+  let news;
+  try{
+    quoteData = yield call(api.get, `/${action.payload.companySymbol}/batch?types=quote`);
+    companyData = yield call(api.get, `/${action.payload.companySymbol}/company`);
+    chartData = yield call(api.get, `/${action.payload.companySymbol}/chart`);
+    news = yield call(api.get, `/${action.payload.companySymbol}/news/last/1`);
+  } catch (err){
+    yield put(addCompanySuccess({status: err.response.status }));
+    return false;
+  }
+
+  quoteData = quoteData.data.quote
+  companyData = companyData.data
+  chartData = chartData.data
+  news = news.data
 
   const Data = {
-    latestPrice: quoteData.quote.latestPrice,
+    latestPrice: quoteData.latestPrice,
     name: companyData.companyName,
     website: companyData.website,
     ceo: companyData.CEO,
     symbol: companyData.symbol,
     chartData,
-    news
+    news,
+    status: 200
   };
 
   yield put(addCompanySuccess(Data));
