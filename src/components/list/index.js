@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import { Container, Company } from './styles';
 import Chart from '../chart';
@@ -22,6 +23,19 @@ const List = ({ companies }) => (
           </li>
         </ul>
         <Chart chartData={company.chartData} />
+
+        <br />
+
+        <div>
+          {company.news.map(New => (
+            <Fragment>
+              <p>Titulo: {New.headline}</p>
+              <p>Data/Hora: {moment(New.datetime).format('DD/MM/YYYY hh:mm:ss')}</p>
+              <p>Fonte: {New.source}</p>
+            </Fragment>
+          )) }
+        </div>
+
       </Company>
     ))}
 
