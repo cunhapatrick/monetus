@@ -1,6 +1,9 @@
 # Monetus Teste Engenharia de Software
 
-  ## Requisitos
+## Descrição
+Sistema de listagem de companhias presentes no mercado e com dados publicos expressados visualmente com gráficos.
+
+## Requisitos
   :heavy_check_mark: Utilização do Redux para controle de estado;
   
   :heavy_check_mark: Dados do quote;
@@ -9,14 +12,14 @@
   
   :heavy_check_mark: Gráfico dos valores do ultimo mês das empresas;
 
-  ## Requisitos Extras
+## Requisitos Extras
   :heavy_check_mark: Componentes reutilizaveis com styled component
   
   :x: Atualização dos dados em tempo real
   
   :x: Animação usando Blooberg
 
-  ## Adicionais
+## Adicionais
   :heavy_check_mark: Sistema de rota implementado
   
   :heavy_check_mark: Utilização da arquitetura Flux;
